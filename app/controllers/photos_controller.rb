@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :logged_in_user, only: [:index]
   def index
-    redirect_to login_path unless logged_in?
   end
 end
