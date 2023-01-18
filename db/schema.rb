@@ -12,11 +12,12 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_17_152428) do
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "user_id"
-    t.string "password_digest"
+    t.string "name", null: false
+    t.string "user_id", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_users_on_user_id", unique: true
   end
 
 end
