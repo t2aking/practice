@@ -1,9 +1,9 @@
 <h1>ログイン</h1>
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.label :user_id %>
+  <%= f.label :user_id, "ユーザーID" %>
   <%= f.text_field :user_id %>
   </br>
-  <%= f.label :password %>
+  <%= f.label :password, "パスワード" %>
   <%= f.password_field :password %>
   </br>
   <%= f.submit "ログインする" %>
