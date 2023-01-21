@@ -1,0 +1,6 @@
+ja:
+  activemodel:
+    attributes:
+      session:
+        user_id: ユーザーID
+        password: パスワード
