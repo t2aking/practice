@@ -1,6 +1,13 @@
 <%= button_to "ログアウト", logout_path, method: :delete %>
 <h1>写真一覧</h1>
+<%= link_to "MyTweetAppと連携", oauth_url(response_type: 'code',
+                                         client_id: 'UqVzVstuP0OwobC9zM3QGzmN7_MvfW30qEabZodUSPY',
+                                         redirect_uri: 'http://localhost:3000/oauth/callback',
+                                         scope: 'write_tweet') %>
+</br>
+</br>
 <%= link_to "写真をアップロード", new_photo_path %>
+</br>
 </br>
 <% @photos.each do |photo| %>
   <div class="frame">
