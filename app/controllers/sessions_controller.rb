@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
   def new
-    @user = User.new
+    @session = Session.new
   end
 
   def create
-    @user = User.new(user_id: session_params[:user_id], password: session_params[:password])
-    if @user.valid? && (@user = User.find_by(user_id: session_params[:user_id])) && @user.authenticate(session_params[:password])
+    @session = Session.new(user_id: session_params[:user_id], password: session_params[:password])
+    if @session.valid? && (@user = User.find_by(user_id: session_params[:user_id])) && @user.authenticate(session_params[:password])
       login @user
       redirect_to root_url
     else
