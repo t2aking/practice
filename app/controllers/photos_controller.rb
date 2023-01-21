@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :logged_in_user
   def index
+    @photos = Photo.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
   def new
