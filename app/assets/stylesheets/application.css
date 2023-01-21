@@ -20,3 +20,8 @@
 .alert {
     color: red;
 }
+
+.frame {
+    display: inline-block;
+    text-align: center;
+}
