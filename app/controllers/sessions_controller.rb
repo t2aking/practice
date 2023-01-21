@@ -5,9 +5,14 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(user_id: session_params[:user_id], password: session_params[:password])
-    if @session.valid? && (@user = User.find_by(user_id: session_params[:user_id])) && @user.authenticate(session_params[:password])
-      login @user
-      redirect_to root_url
+    if @session.valid? &&
+      if (@user = User.find_by(user_id: session_params[:user_id])) && @user.authenticate(session_params[:password])
+        login @user
+        redirect_to root_url
+      else
+        @session.errors.add(:base, "ユーザーIDまたはパスワードに誤りがあります。")
+        render :new,  status: :unprocessable_entity
+      end
     else
       render :new,  status: :unprocessable_entity
     end
