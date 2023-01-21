@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params)
+    @photo.user_id = current_user.id
     if @photo.save
       redirect_to root_url
     else
