@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :logged_in_user
   def index
+    @photos = Photo.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
   def new
@@ -9,6 +10,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create(photo_params)
+    @photo.user_id = current_user.id
     if @photo.save
       redirect_to root_url
     else
