@@ -1,0 +1,13 @@
+<%= button_to "ログアウト", logout_path, method: :delete %>
+<h1>写真アップロード</h1>
+<%= form_with(scope: :photo, model: @photo, url: photo_path, local: true) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  </br>
+  <%= f.label :image, "画像ファイル" %>
+  <%= f.file_field :image %>
+  </br>
+  <%= f.submit "アップロード" %>
+  <%= link_to "キャンセル", root_path %>
+<% end %>
