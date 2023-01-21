@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.create(photo_params)
     if @photo.save
-      redirect_to photo_path
+      redirect_to root_url
     else
       render :new, status: :unprocessable_entity
     end
