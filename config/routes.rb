@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/oauth/callback', to: 'sessions#callback'
   resource :photo, only: [:new, :create]
-
+  post '/', to: 'photos#tweet'
   direct :oauth do |options|
     uri = URI.parse("http://unifa-recruit-my-tweet-app.ap-northeast-1.elasticbeanstalk.com/oauth/authorize")
     uri.query = options.to_param unless options.empty?

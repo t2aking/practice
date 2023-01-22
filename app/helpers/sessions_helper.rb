@@ -17,4 +17,8 @@ module SessionsHelper
     session.delete(:user_key)
     @current_user = nil
   end
+
+  def auth_tweet_app?
+    session.has_key?('access_token')
+  end
 end
