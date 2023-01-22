@@ -13,5 +13,8 @@
   <div class="frame">
     <p><%= photo.title %></p>
     <%= image_tag photo.image %>
+    <% if auth_tweet_app? %>
+      <p><%= link_to "ツイートする", root_path(photo_id: photo.id), data: { turbo_method: :post } %></p>
+    <% end %>
   </div>
 <% end %>
