@@ -35,5 +35,8 @@ rails c
 以下は作成例です
 User.create(name: "ユーザー", user_id: "A00001", password: "hogehoge", password_confirmation: "hogehoge")
 ```
-4. 'http://localhost:3000'へアクセス
+4. `http://localhost:3000`へアクセス
 
+## その他
+
+- 最初にbitbucketを使用して最後にgithubへ移行しました。
