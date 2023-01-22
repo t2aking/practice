@@ -43,7 +43,7 @@ class SessionsController < ApplicationController
     case req
     when Net::HTTPSuccess
       token = JSON.parse(req.body)
-      session[:access_token] = token[:access_token]
+      session[:access_token] = token['access_token']
       redirect_to root_url
     else
       raise "アクセストークンの取得に失敗しました。"
