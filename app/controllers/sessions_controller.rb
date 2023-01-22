@@ -39,10 +39,10 @@ class SessionsController < ApplicationController
     http = Net::HTTP::new(uri.host, uri.port)
     http.use_ssl = false
     req = Net::HTTP::Post.new(uri)
-    req = http.request(req)
-    case req
+    res = http.request(req)
+    case res
     when Net::HTTPSuccess
-      token = JSON.parse(req.body)
+      token = JSON.parse(res.body)
       session[:access_token] = token['access_token']
       redirect_to root_url
     else
